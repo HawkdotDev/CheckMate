@@ -16,7 +16,7 @@ export function ColorPicker({
   return (
     <div className="space-y-2">
       <div>
-        <p className="text-sm mb-1 opacity-75">Background</p>
+        <p className="text-sm mb-1 opacity-75 text-black">Background</p>
         <div className="flex gap-1 flex-wrap">
           {DEFAULT_COLORS.map((color) => (
             <button
@@ -33,7 +33,7 @@ export function ColorPicker({
       </div>
       
       <div>
-        <p className="text-sm mb-1 opacity-75">Text</p>
+        <p className="text-sm mb-1 opacity-75 text-black">Text</p>
         <div className="flex gap-1 flex-wrap">
           {DEFAULT_TEXT_COLORS.map((color) => (
             <button

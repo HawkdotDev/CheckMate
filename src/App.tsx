@@ -1,4 +1,4 @@
-import  PlusCircle from "../src/assets/icons/pluscircle.svg";
+import PlusCircle from "../src/assets/icons/pluscircle.svg";
 import { TodoList } from "./components/TodoList";
 import { ThemeToggle } from "./components/ThemeToggle";
 import { useTodoLists } from "./hooks/useTodoLists";
@@ -35,14 +35,23 @@ function App() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex justify-between items-center">
-            <h1 className="text-2xl font-bold">Notes</h1>
+            <div className="sections">
+              <a href="/notes" className="text-2xl font-bold cursor-pointer mr-4 md:mr-9">Notes</a>
+              <a href="/reminders" className="text-2xl font-bold cursor-pointer mr-6">Reminters</a>
+            </div>
             <div className="flex items-center gap-4">
               <ThemeToggle theme={theme} onToggle={toggleTheme} />
               <button
                 onClick={createList}
                 className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
               >
-                <img src={PlusCircle} alt="Delete" width={16} height={16} className="shrink-0" />
+                <img
+                  src={PlusCircle}
+                  alt="Delete"
+                  width={16}
+                  height={16}
+                  className="shrink-0"
+                />
                 New List
               </button>
             </div>
