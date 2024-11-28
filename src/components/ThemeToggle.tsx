@@ -1,5 +1,5 @@
-import SunIcon from "../Assets/icons/sun.svg";
-import MoonIcon from "../Assets/icons/moon.svg";
+import SunIcon from "../assets/icons/sun.svg";
+import MoonIcon from "../assets/icons/moon.svg";
 import type { Theme } from "../types";
 
 interface ThemeToggleProps {

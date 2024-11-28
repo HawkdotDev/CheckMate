@@ -36,8 +36,18 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex justify-between items-center">
             <div className="sections">
-              <a href="/notes" className="text-2xl font-bold cursor-pointer mr-4 md:mr-9">Notes</a>
-              <a href="/reminders" className="text-2xl font-bold cursor-pointer mr-6">Reminters</a>
+              <a
+                href="/notes"
+                className="text-2xl font-bold cursor-pointer mr-4 md:mr-9"
+              >
+                Notes
+              </a>
+              <a
+                href="/reminders"
+                className="text-2xl font-bold cursor-pointer mr-6"
+              >
+                Reminters
+              </a>
             </div>
             <div className="flex items-center gap-4">
               <ThemeToggle theme={theme} onToggle={toggleTheme} />

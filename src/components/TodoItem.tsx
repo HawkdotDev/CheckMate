@@ -5,9 +5,9 @@ import type { Todo } from "../types";
 import { getComplementaryColor } from "../utils/colors";
 
 // Import your custom SVGs
-import CheckIcon from "../Assets/icons/check.svg";
-import TrashIcon from "../Assets/icons/trash.svg";
-import GripIcon from "../Assets/icons/grip-vertical.svg";
+import CheckIcon from "../assets/icons/check.svg";
+import TrashIcon from "../assets/icons/trash.svg";
+import GripIcon from "../assets/icons/grip-vertical.svg";
 
 interface TodoItemProps {
   todo: Todo;

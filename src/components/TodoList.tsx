@@ -1,8 +1,8 @@
-import Pin from "../Assets/icons/pin.svg"; // Import your SVGs
-import PinOff from "../Assets/icons/pin-off.svg";
-import Trash2 from "../Assets/icons/trash.svg";
-import Plus from "../Assets/icons/plus.svg";
-import Palette from "../Assets/icons/palette.svg";
+import Pin from "../assets/icons/pin.svg"; // Import your SVGs
+import PinOff from "../assets/icons/pin-off.svg";
+import Trash2 from "../assets/icons/trash.svg";
+import Plus from "../assets/icons/plus.svg";
+import Palette from "../assets/icons/palette.svg";
 
 import type { TodoList as TodoListType } from "../types";
 import { TodoItem } from "./TodoItem";
