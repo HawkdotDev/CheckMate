@@ -1,8 +1,10 @@
-import Pin from "../assets/icons/pin.svg"; // Import your SVGs
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import Pin from "../assets/icons/pin.svg";
 import PinOff from "../assets/icons/pin-off.svg";
 import Trash2 from "../assets/icons/trash.svg";
 import Plus from "../assets/icons/plus.svg";
 import Palette from "../assets/icons/palette.svg";
+import GripIcon from "../assets/icons/grip-vertical.svg";
 
 import type { TodoList as TodoListType } from "../types";
 import { TodoItem } from "./TodoItem";
@@ -20,8 +22,12 @@ import {
   SortableContext,
   sortableKeyboardCoordinates,
   verticalListSortingStrategy,
+  useSortable,
 } from "@dnd-kit/sortable";
 import { useState } from "react";
+import { CSS } from "@dnd-kit/utilities";
+
+import { getComplementaryColor } from "../utils/colors";
 
 interface TodoListProps {
   list: TodoListType;
@@ -51,6 +57,21 @@ export function TodoList({
   onUpdateTextColor,
 }: TodoListProps) {
   const [showColorPicker, setShowColorPicker] = useState(false);
+  const complementaryColor = getComplementaryColor(list.color);
+
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+    isDragging,
+  } = useSortable({ id: list.id });
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+  };
 
   const sensors = useSensors(
     useSensor(PointerSensor),
@@ -71,27 +92,47 @@ export function TodoList({
 
   return (
     <div
-      className={`rounded-lg p-4 shadow-lg transition-all duration-200 hover:shadow-xl ${
+      ref={setNodeRef}
+      style={{
+        ...style,
+        backgroundColor: list.color,
+        opacity: isDragging ? 0.5 : 1,
+      }}
+      className={`rounded-lg p-4 shadow-lg transition-all duration-200 hover:shadow-xl mb-4 ${
         list.isPinned ? "ring-2 ring-blue-500" : ""
       }`}
-      style={{ backgroundColor: list.color }}
     >
       <div className="flex items-center justify-between mb-3">
-        <input
-          type="text"
-          value={list.title}
-          onChange={(e) => onUpdateTitle(list.id, e.target.value)}
-          className="text-lg font-semibold bg-transparent border-none focus:outline-none focus:ring-0 w-full"
-          placeholder="List Title"
-          style={{ color: list.textColor }}
-        />
+        <div className="flex items-center gap-2 flex-1">
+          <button
+            className="touch-none px-1 opacity-50 hover:opacity-100 flex items-center justify-center cursor-grab"
+            {...attributes}
+            {...listeners}
+          >
+            <img
+              src={GripIcon}
+              alt="Drag"
+              width={20}
+              height={20}
+              className="shrink-0"
+            />
+          </button>
+          <input
+            type="text"
+            value={list.title}
+            onChange={(e) => onUpdateTitle(list.id, e.target.value)}
+            className="text-lg font-semibold bg-transparent border-none focus:outline-none focus:ring-0 w-full"
+            placeholder="List Title"
+            style={{ color: complementaryColor }}
+          />
+        </div>
         <div className="flex items-center gap-2">
           <button
             onClick={() => setShowColorPicker(!showColorPicker)}
             className="p-1.5 rounded-full hover:bg-black/10 transition-colors flex items-center justify-center"
             style={{ color: list.textColor }}
           >
-            <img src={Palette} alt="Palette" className="w-5 h-5" />
+            <img src={Palette} alt="Palette" />
           </button>
           <button
             onClick={() => onPin(list.id)}
@@ -99,16 +140,16 @@ export function TodoList({
             style={{ color: list.textColor }}
           >
             {list.isPinned ? (
-              <img src={PinOff} alt="Unpin" className="w-5 h-5" />
+              <img src={PinOff} alt="Unpin" />
             ) : (
-              <img src={Pin} alt="Pin" className="w-5 h-5" />
+              <img src={Pin} alt="Pin" />
             )}
           </button>
           <button
             onClick={() => onDelete(list.id)}
-            className="p-1.5 rounded-full hover:bg-black/10 transition-colors text-red-600 flex items-center justify-center"
+            className="p-1.5 rounded-full hover:bg-red-500/60 transition-colors text-red-600 flex items-center justify-center"
           >
-            <img src={Trash2} alt="Delete" className="w-5 h-5" />
+            <img src={Trash2} alt="Delete" />
           </button>
         </div>
       </div>

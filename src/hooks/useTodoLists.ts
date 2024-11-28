@@ -130,6 +130,15 @@ export function useTodoLists() {
       )
     );
   };
+  
+  const reorderLists = (newLists: TodoList[]) => {
+    // Preserve pinned/unpinned sections while reordering within each section
+    const pinnedLists = newLists.filter(list => list.isPinned);
+    const unpinnedLists = newLists.filter(list => !list.isPinned);
+    
+    // Combine the lists maintaining the pinned ones at the top
+    setLists([...pinnedLists, ...unpinnedLists]);
+  };
 
   return {
     lists,
@@ -144,5 +153,6 @@ export function useTodoLists() {
     updateListTitle,
     updateListColor,
     updateListTextColor,
+    reorderLists
   };
 }

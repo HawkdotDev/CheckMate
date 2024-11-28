@@ -2,9 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import type { Todo } from "../types";
-import { getComplementaryColor } from "../utils/colors";
 
-// Import your custom SVGs
 import CheckIcon from "../assets/icons/check.svg";
 import TrashIcon from "../assets/icons/trash.svg";
 import GripIcon from "../assets/icons/grip-vertical.svg";
@@ -31,7 +29,6 @@ export function TodoItem({
   const [isEditing, setIsEditing] = useState(!todo.text);
   const [text, setText] = useState(todo.text);
   const inputRef = useRef<HTMLInputElement>(null);
-  const complementaryColor = getComplementaryColor(backgroundColor);
 
   const {
     attributes,
@@ -85,8 +82,8 @@ export function TodoItem({
         <img
           src={GripIcon}
           alt="Drag"
-          width={16}
-          height={16}
+          width={20}
+          height={20}
           className="shrink-0"
         />
       </button>
@@ -106,8 +103,8 @@ export function TodoItem({
           <img
             src={CheckIcon}
             alt="Completed"
-            width={14}
-            height={14}
+            width={15}
+            height={15}
             className="absolute inset-0 m-auto pointer-events-none"
             style={{ color: backgroundColor }}
           />
@@ -140,13 +137,13 @@ export function TodoItem({
 
       <button
         onClick={onDelete}
-        className="opacity-0 group-hover:opacity-100 hover:text-red-600 transition-all flex items-center justify-center"
+        className="opacity-0 group-hover:opacity-100 hover:bg-red-600/60 p-1 rounded-full transition-all flex items-center justify-center"
       >
         <img
           src={TrashIcon}
           alt="Delete"
-          width={16}
-          height={16}
+          width={18}
+          height={18}
           className="shrink-0"
         />
       </button>
