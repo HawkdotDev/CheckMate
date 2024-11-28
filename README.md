@@ -126,4 +126,4 @@ If you found this project helpful or want to support its development:
 
 ---
 
-<p align="center">Made with ❤️ by the CheckMate Team</p>
+<p align="center">Made with ❤️ by the HawkdotDev</p>
