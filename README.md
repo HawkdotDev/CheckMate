@@ -34,47 +34,37 @@ Your intelligent companion for task management, note-taking, and staying organiz
   - Electron-based cross-platform support
   - System-level notifications
   - Offline-first sync
-  - Custom window controls
 
 - [ ] **Voice Notes**
   - Voice-to-text transcription
   - Audio note attachments
-  - Quick voice commands
   - Multilingual support
 
 ### Q2 2025
 - [ ] **Enhanced Reminders**
   - Location-based reminders
   - Recurring reminders with custom patterns
-  - Smart reminder suggestions
   - Calendar integration
   - Time zone support
 
 - [ ] **Sticky Notes**
   - Convert lists to sticky notes
   - Desktop widget support
-  - Quick capture overlay
-  - Multi-monitor support
 
 ### Q3 2025
 - [ ] **Notes Integration**
   - Rich text editor
   - Markdown support
-  - File attachments
-  - Tags and categories
-  - Search with OCR
 
 - [ ] **Real-time Collaboration**
   - WebSocket-based live updates
   - Shared workspaces
   - Commenting system
   - Activity timeline
-  - Conflict resolution
 
 ### Q4 2025
 - [ ] **AI Features**
   - Smart task categorization
-  - Priority suggestions
   - Deadline recommendations
   - Natural language processing
   - Task completion predictions
